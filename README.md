@@ -18,6 +18,8 @@ https://feninaadmin.github.io/motorsport-portal-data/schedule.json
 | `links.privacyPolicy` / `links.contact` | アプリ内のプライバシーポリシー・お問い合わせのリンク先 |
 | `seasons[]` | シリーズごとのシーズン（`series` は `F1` / `MotoGP` / `Formula E` / `WEC` / `IndyCar` / `WSBK`。WSBK はアプリの設定でオンにした人だけに表示） |
 | `nextSeasonOpeners[]` | 次シーズンの開幕戦（シーズンオフのウィジェット表示用） |
+| `wiki.latestYear` | 言語コード → シリーズ → 年。その言語版にまだ記事がない年を出さないための上限（例：`{"it": {"F1": 2026}}`）。1.1 以降 |
+| `wiki.pages` | 言語コード → シリーズ → 年 → 記事名。自動で作る記事名が違うときの上書き（例：`{"ja": {"MotoGP": {"2027": "2027年の…"}}}`）。1.1 以降 |
 
 ラウンド：`label`, `name`, `circuit`, `start` / `end`（開催日 `yyyy-MM-dd`）, `sessions[]`, `cancelled`（省略時 false）, `note`（任意）
 
