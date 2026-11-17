@@ -20,6 +20,8 @@ https://feninaadmin.github.io/motorsport-portal-data/schedule.json
 | `nextSeasonOpeners[]` | 次シーズンの開幕戦（シーズンオフのウィジェット表示用） |
 | `wiki.latestYear` | 言語コード → シリーズ → 年。その言語版にまだ記事がない年を出さないための上限（例：`{"it": {"F1": 2026}}`）。1.1 以降 |
 | `wiki.pages` | 言語コード → シリーズ → 年 → 記事名。自動で作る記事名が違うときの上書き（例：`{"ja": {"MotoGP": {"2027": "2027年の…"}}}`）。1.1 以降 |
+| `circuits` | サーキット名（rounds の circuit と同じ文字列）→ `path`（コース形状。0〜100 の座標の SVG パス、M/L/Z のみ）と `wiki`（`ja`・`en` の記事名。ほかの言語は en の記事名で検索）。1.2 以降 |
+| `i18n` | 日本語の文字列 → `{"en": …, "it": …, "es": …}`。アプリに翻訳がない地名・セッション名などを、アプリ更新なしで翻訳する。1.2 以降 |
 
 ラウンド：`label`, `name`, `circuit`, `start` / `end`（開催日 `yyyy-MM-dd`）, `sessions[]`, `cancelled`（省略時 false）, `note`（任意）
 
@@ -33,3 +35,8 @@ https://feninaadmin.github.io/motorsport-portal-data/schedule.json
 ## 互換性の注意
 - 1.1 以降のアプリが読む。今後も既存の項目の意味は変えず、項目の追加だけにする（古いアプリは知らない項目を無視する）
 - 形式を大きく変える時は `schemaVersion` を上げる（古いアプリはそのデータを読まず、保存済みのデータを使い続ける）
+
+## コース形状の出典
+- [bacinger/f1-circuits](https://github.com/bacinger/f1-circuits)（MIT License）
+- © OpenStreetMap contributors（[opentrackdata](https://github.com/chendo/opentrackdata) 経由、ODbL）。`circuits` のうち OpenStreetMap 由来の形状は ODbL に従います
+- 一部は公開されているコース図をもとに簡略化して描き起こしたもの
